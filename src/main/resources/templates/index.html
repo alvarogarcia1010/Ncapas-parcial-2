@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+	<body>
+	 <div class="container">
+	   <a class="btn btn-outline-info float-right mr-3" th:href="@{/ingresarCategoria}" role="button">Ingresar categoria</a>
+	   
+	   <a class="btn btn-outline-info float-right mr-3" th:href="@{/ingresarLibro}" role="button">Ingresar libro</a>
+	   
+	   <a class="btn btn-outline-info float-right mr-3" th:href="@{/verLibros}" role="button">Ver libros</a>
+	   
+      <th:block th:if="${exitoCategoria}">
+       <div class="alert alert-success alert-dismissible fade show" role="alert">
+         Categoria guardada con exito
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+      
+     </th:block>
+	 </div>
+	
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>

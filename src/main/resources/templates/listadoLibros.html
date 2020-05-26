@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Listado</title>
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+	  <div class="container">
+	    <div class="row justify-content-center">
+	      <div class="col-md-8">
+	        <div class="card text-center mt-2 p-2">
+	         <legend class="text-left">
+	           Lista de libros
+	           <a class="btn btn-outline-info float-right" th:href="@{/}">Nuevo</a>
+	         </legend>
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">Nit</th>
+                  <th scope="col">Importancia</th>
+                  <th scope="col">Fecha de ingreso</th>
+                </tr>
+              </thead>
+              <tbody>
+                <th:block th:each="contribuyente, row: ${contribuyentes}">
+                  <tr>
+                    <th th:text="${contribuyente.codigoContribuyente}" scope="row"/>
+                    <td th:text="${contribuyente.nombre}"/>
+                    <td th:text="${contribuyente.apellido}"/>
+                    <td th:text="${contribuyente.nit}"/>
+                    <td th:text="${contribuyente.importancia.importancia}"/>
+                    <td th:text="${contribuyente.fechaIngresoDelegate}"/>
+                  </tr>
+               </th:block>
+              </tbody>
+            </table>
+					
+	        </div>
+	      </div>
+	    </div>
+	  </div>  
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
