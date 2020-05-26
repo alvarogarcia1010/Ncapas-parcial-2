@@ -46,13 +46,14 @@ public class Libro {
 	
 	@Column(name="b_estado")
 	@NotNull(message="Este campo no puede estar vacio")
-	private String estado;
+	private Boolean estado;
 	
 	@Column(name = "f_ingreso")
 	private Date fechaIngreso;
 	
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "c_categoria")
+	@NotNull(message="Este campo no puede estar vacio")
     private Categoria categoria;
 	
 	public Libro() {super();}
@@ -81,11 +82,11 @@ public class Libro {
 		this.autor = autor;
 	}
 
-	public String getEstado() {
+	public Boolean getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
 

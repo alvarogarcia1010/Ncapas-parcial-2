@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>IngresarLibro</title>
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+     <div class="container">
+      <div class="row justify-content-center">
+         <div class="col-md-6">
+          <div class="card mt-2">
+            <div class="card-body">
+              <form th:action="@{/guardarLibro}" th:object="${libro}" method="post"> 
+	              <legend>
+		             Nuevo libro
+		             <button type="submit" class="btn btn-success float-right">Guardar</button>
+		             <a class="btn btn-outline-secondary float-right mr-3" th:href="@{/index}" role="button">Regresar</a>
+		             </legend>
+	                <div class="form-group">
+	                  <label for="titulo" class="mb-1">Titulo</label>
+	                  <input type="text" class="form-control" th:field="*{titulo}" id="titulo" name="titulo">
+	                  <small th:errors="*{titulo}" style="color: #FF0000"></small>
+	                </div>
+	                <div class="form-group">
+	                  <label for="autor" class="mb-1">Autor</label>
+	                  <input type="text" class="form-control" th:field="*{autor}" id="autor" name="autor">
+	                  <small th:errors="*{autor}" style="color: #FF0000"></small>              
+	                </div>
+	                <div class="form-group">
+	                  <label for="isbn" >ISBN</label>
+	                  <input type="text" class="form-control" th:field="*{isbn}" id="isbn" name="isbn">
+	                  <small th:errors="*{isbn}" style="color: #FF0000"></small> 
+	                </div>
+	                <div class="form-group">
+								    <label for="categoria">Categoria</label>
+								    <select th:field="*{categoria.codigoCategoria}" class="form-control" id="categoria">
+				                <option th:each="cat, row: ${categorias}" th:value="${cat.codigoCategoria}" th:text="${cat.nombre}"></option>
+				            </select>
+							   </div>
+								  <div class="form-check">
+									  <input class="form-check-input" type="checkbox" value="*{estado}" th:field="*{estado}" th:checked="*{estado}" id="estado">
+									  <label class="form-check-label" for="estado">
+									    Estado (Activo)
+									  </label>
+									  <small th:errors="*{estado}" style="color: #FF0000"></small> 
+									</div>
+	              </form>
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -86,8 +86,8 @@ public class MainController {
 		return mav;
 	}
 	
-	@RequestMapping("/guardarContribuyente")
-	public ModelAndView save(@Valid @ModelAttribute Libro libro, BindingResult result) {
+	@RequestMapping("/guardarLibro")
+	public ModelAndView saveLibro(@Valid @ModelAttribute Libro libro, BindingResult result) {
 		ModelAndView mav = new ModelAndView();
 
 		if(result.hasErrors()) 
@@ -102,7 +102,7 @@ public class MainController {
 			}
 			
 			mav.addObject("categorias", listaDeCategoria);
-			mav.setViewName("index");
+			mav.setViewName("ingresarLibro");
 		}
 		else 
 		{
