@@ -7,29 +7,39 @@
   </head>
 	<body>
 	 <div class="container">
-	   <a class="btn btn-outline-info float-right mr-3" th:href="@{/ingresarCategoria}" role="button">Ingresar categoria</a>
-	   
-	   <a class="btn btn-outline-info float-right mr-3" th:href="@{/ingresarLibro}" role="button">Ingresar libro</a>
-	   
-	   <a class="btn btn-outline-info float-right mr-3" th:href="@{/verLibros}" role="button">Ver libros</a>
-	   
-      <th:block th:if="${exitoCategoria}">
-       <div class="alert alert-success alert-dismissible fade show" role="alert">
-         Categoria guardada con exito
-         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-         </button>
-       </div>
-     </th:block>
+	 
+	 
+	   <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="card text-center mt-2 p-3">
+                <legend class="border-bottom">Menu</legend>
+                <th:block th:if="${exitoCategoria}">
+						       <div class="alert alert-success alert-dismissible fade show" role="alert">
+						         Categoria guardada con exito
+						         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						           <span aria-hidden="true">&times;</span>
+						         </button>
+						       </div>
+						     </th:block>
+						     
+						    <th:block th:if="${exitoLibro}">
+						       <div class="alert alert-success alert-dismissible fade show" role="alert">
+						         Libro guardado con exito
+						         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						           <span aria-hidden="true">&times;</span>
+						         </button>
+						       </div>
+						     </th:block>
+               <a class="btn btn-primary my-3" th:href="@{/ingresarCategoria}" role="button">Ingresar categoria</a>
      
-    <th:block th:if="${exitoLibro}">
-       <div class="alert alert-success alert-dismissible fade show" role="alert">
-         Libro guardado con exito
-         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-         </button>
-       </div>
-     </th:block>
+					     <a class="btn btn-info my-3" th:href="@{/ingresarLibro}" role="button">Ingresar libro</a>
+					     
+					     <a class="btn btn-warning my-3" th:href="@{/verLibros}" role="button">Ver libros</a>
+     
+          </div>
+        </div>
+    </div>
+        
 	 </div>
 	
     <script src="js/jquery.min.js"></script>
