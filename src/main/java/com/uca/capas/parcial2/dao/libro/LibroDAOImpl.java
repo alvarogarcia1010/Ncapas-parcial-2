@@ -1,6 +1,7 @@
 package com.uca.capas.parcial2.dao.libro;
 
-import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -35,7 +36,7 @@ public class LibroDAOImpl implements LibroDAO {
 			if(libro.getCodigoLibro() == null) 
 			{
 				long millis=System.currentTimeMillis();  
-				libro.setFechaIngreso(new Date(millis));
+				libro.setFechaIngreso(new Timestamp(Calendar.getInstance().getTime().getTime()));
 				entityManager.persist(libro);
 			}
 			else 

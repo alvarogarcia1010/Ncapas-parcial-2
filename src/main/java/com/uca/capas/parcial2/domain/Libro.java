@@ -1,6 +1,7 @@
 package com.uca.capas.parcial2.domain;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 import javax.persistence.Column;
@@ -49,7 +50,7 @@ public class Libro {
 	private Boolean estado;
 	
 	@Column(name = "f_ingreso")
-	private Date fechaIngreso;
+	private Timestamp fechaIngreso;
 	
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "c_categoria")
@@ -90,11 +91,11 @@ public class Libro {
 		this.estado = estado;
 	}
 
-	public Date getFechaIngreso() {
+	public Timestamp getFechaIngreso() {
 		return fechaIngreso;
 	}
 
-	public void setFechaIngreso(Date fechaIngreso) {
+	public void setFechaIngreso(Timestamp fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
 
@@ -119,9 +120,19 @@ public class Libro {
 			return "";
 		}
 		else{
-			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm aa");
 			String shortdate = sdf.format(this.fechaIngreso.getTime());
 			return shortdate;
+		}
+	}
+	
+	public String getEstadoDelegate(){
+		if(this.estado == null){
+			return "";
+		}
+		else{
+			if(this.estado) return "Activo";
+			else return "Inactivo";
 		}
 	}
 	
