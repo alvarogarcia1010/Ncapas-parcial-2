@@ -19,22 +19,22 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Apellido</th>
-                  <th scope="col">Nit</th>
-                  <th scope="col">Importancia</th>
+                  <th scope="col">Titulo</th>
+                  <th scope="col">Autor</th>
+                  <th scope="col">ISBN</th>
+                  <th scope="col">Categoria</th>
                   <th scope="col">Fecha de ingreso</th>
                 </tr>
               </thead>
               <tbody>
-                <th:block th:each="contribuyente, row: ${contribuyentes}">
+                <th:block th:each="libro, row: ${libros}">
                   <tr>
-                    <th th:text="${contribuyente.codigoContribuyente}" scope="row"/>
-                    <td th:text="${contribuyente.nombre}"/>
-                    <td th:text="${contribuyente.apellido}"/>
-                    <td th:text="${contribuyente.nit}"/>
-                    <td th:text="${contribuyente.importancia.importancia}"/>
-                    <td th:text="${contribuyente.fechaIngresoDelegate}"/>
+                    <th th:text="${libro.codigoLibro}" scope="row"/>
+                    <td th:text="${libro.titulo}"/>
+                    <td th:text="${libro.autor}"/>
+                    <td th:text="${libro.isbn}"/>
+                    <td th:text="${libro.categoria.nombre}"/>
+                    <td th:text="${libro.fechaIngresoDelegate}"/>
                   </tr>
                </th:block>
               </tbody>
